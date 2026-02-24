@@ -1,8 +1,8 @@
-\# PowerShell Commands Used
+# PowerShell Commands Used
 
 
 
-\## User Creation
+## User Creation
 
 net user alice Pass123! /add
 
@@ -12,7 +12,7 @@ net user helpdesk Pass123! /add
 
 
 
-\## Group Creation
+## Group Creation
 
 net localgroup Finance /add
 
@@ -20,7 +20,7 @@ net localgroup ITSupport /add
 
 
 
-\## Add Users to Groups
+## Add Users to Groups
 
 net localgroup Finance alice /add
 
@@ -28,13 +28,13 @@ net localgroup ITSupport helpdesk /add
 
 
 
-\## Password Reset
+## Password Reset
 
 net user alice NewPass123!
 
 
 
-\## Disable / Enable Account
+## Disable / Enable Account
 
 net user bob /active:no
 
@@ -42,7 +42,7 @@ net user bob /active:yes
 
 
 
-\## Git Commands
+## Git Commands
 
 git add .
 
