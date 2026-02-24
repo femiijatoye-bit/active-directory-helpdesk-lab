@@ -2,11 +2,11 @@
 
 
 
-\# Active Directory Helpdesk Lab
+# Active Directory Helpdesk Lab
 
 
 
-\## Objective
+## Objective
 
 Simulate real IT helpdesk Active Directory tasks:
 
@@ -20,13 +20,13 @@ Simulate real IT helpdesk Active Directory tasks:
 
 
 
-\## Environment
+## Environment
 
 Windows VM isolated lab.
 
 
 
-\## Skills Demonstrated
+## Skills Demonstrated
 
 \- Windows user administration
 
@@ -38,7 +38,7 @@ Windows VM isolated lab.
 
 
 
-\## Evidence
+## Evidence
 
 See screenshots folder.
 
