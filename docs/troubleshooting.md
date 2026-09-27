@@ -10,7 +10,7 @@
 
 **Diagnosis:** The selected public resolver could not resolve this internal AD domain. The paired test demonstrates why the lab endpoint needs the domain DNS service for domain discovery.
 
-**Repair:** Restore CL01's DNS configuration to DC01 at `10.20.1.4`, as recorded by the lab author. The adapter-setting operation itself is not captured.
+**Repair:** CL01's DNS configuration was restored to DC01 at `10.20.1.4`. The adapter-setting operation itself is not captured.
 
 **Validation:** [Saved recovery output](../evidence/troubleshooting/cl01-dns-repair-success.png) shows the resolver at `10.20.1.4`, successful resolution of `corp.femi.local`, and successful discovery of `DC01.corp.femi.local` using `nltest`.
 

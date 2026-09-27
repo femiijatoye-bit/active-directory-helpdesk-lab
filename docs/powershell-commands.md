@@ -50,7 +50,7 @@ nslookup corp.femi.local
 nltest /dsgetdc:corp.femi.local
 ```
 
-These Windows utilities show the [DNS failure](../evidence/troubleshooting/cl01-broken-dns-domain-failure.png) and [recovery](../evidence/troubleshooting/cl01-dns-repair-success.png). `ipconfig` was reported as part of lab validation, but its output is not retained in this repository.
+These Windows utilities show the [DNS failure](../evidence/troubleshooting/cl01-broken-dns-domain-failure.png) and [recovery](../evidence/troubleshooting/cl01-dns-repair-success.png). `ipconfig` was used during lab validation; its output is not retained in this repository.
 
 ## Group Policy and identity — CL01
 

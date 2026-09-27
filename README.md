@@ -6,7 +6,7 @@ A Windows Server 2022 lab demonstrating domain administration, group-based file 
 
 | Component | Role |
 | --- | --- |
-| DC01 | Windows Server 2022 domain controller, AD DS, DNS, and Finance file resource |
+| DC01 | Azure-hosted Windows Server 2022 domain controller, AD DS, DNS, and Finance file resource |
 | CL01 | Azure-hosted Windows Server 2022 member server used as the lab endpoint |
 | Directory | `corp.femi.local` / `CORP`, corporate OUs, departmental users and groups |
 | Support identity | Alex Morgan, member of `GG-Helpdesk`; Domain Admins absent from the captured session token |
@@ -48,4 +48,4 @@ See the [environment architecture](architecture/environment-architecture.md) for
 
 ## Lab scope
 
-This is a portfolio lab. CL01 runs Windows Server 2022 as the client endpoint. The validation summary distinguishes saved output from lab-author context, including the Finance share chronology and Help Desk delegation scope. Screenshots are organized by scenario; public connection addresses and password strings are removed from the retained evidence.
+This Azure-hosted Windows Server 2022 environment was built to simulate common L1/L2 Help Desk and Active Directory administration scenarios. CL01 was used as the domain-joined member-server endpoint for authentication, Group Policy, permissions, remote support, and troubleshooting validation. See the [validation summary](docs/validation.md) for the Finance share chronology and evidence boundaries.

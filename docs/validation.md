@@ -2,14 +2,14 @@
 
 [Back to README](../README.md)
 
-This summary describes saved lab evidence and the lab author's clarification. Repository cleanup did not execute commands against DC01 or CL01. Screenshots capture individual points in the lab, not continuous monitoring or a complete configuration export.
+This summary describes the lab configuration, saved results, and evidence boundaries. Repository cleanup did not execute commands against DC01 or CL01. Screenshots capture individual points in the lab, not continuous monitoring or a complete configuration export.
 
 ## Finance share chronology
 
 1. NTFS permissions were configured on `C:\Shares\Finance`. The saved [NTFS view](../evidence/access-control/finance-share-ntfs-permissions.png) and [membership/ACL chain](../evidence/access-control/finance-access-chain-validation.png) show the RW configuration.
 2. Earlier connection tests used `\\DC01\Finance` with Ethan and Olivia. A connection-success result establishes SMB connection success, not the complete effective permission set.
-3. The lab author confirms the GPP drive item used **`\\DC01\Finance`**, the canonical mapped-drive path. Ethan's Finance (`F:`) drive came from that configuration, and he created `ethan-finance-write-test.txt` through it. The saved file listing shows `Finance (F:) > Finance`.
-4. In the later read-only test, Olivia browsed **`\\DC01\Finance2`** and saw the same named test file. The lab author confirms that both share names exposed the same Finance test data at that point. Olivia's identity, directory listing, and write denial are visible together in the final read-only capture.
+3. The GPP drive item used **`\\DC01\Finance`**, the canonical mapped-drive path. Ethan's Finance (`F:`) drive came from that configuration, and he created `ethan-finance-write-test.txt` through it. The saved file listing shows `Finance (F:) > Finance`.
+4. In the later read-only test, Olivia browsed **`\\DC01\Finance2`** and saw the same named test file. Both share names exposed the same Finance test data at that point. Olivia's identity, directory listing, and write denial are visible together in the final read-only capture.
 5. `Finance2` is a secondary/test share used during read-only validation. The repository does not establish the original `Finance` share's exact local target. Breadcrumbs suggest a nested Finance folder, but are insufficient to assert a particular parent/share mapping. No production-design explanation for the two shares is inferred.
 
 Upload order supports the sequence of evidence additions, not the complete sequence of configuration changes. Do not substitute `Finance2` for the canonical mapped-drive path or describe both shares as proven aliases of one exact local directory.
@@ -30,11 +30,11 @@ Paths below link every retained screenshot. “Context” identifies the scope o
 | [Finance user connection/test](../evidence/access-control/finance-share-user-access-test.png) | Ethan SMB connection succeeds; test file visible in a nested Finance location |
 | [Olivia connection](../evidence/access-control/finance-readonly-connection-success.png) | Connection to `Finance` succeeds using Olivia's credentials |
 | [Earlier denial detail](../evidence/access-control/finance-readonly-access-denied.png) | Cropped `Finance2` write-denial dialog; identity absent from this crop |
-| [Mapped-drive test file](../evidence/access-control/finance-drive-write-access-success.png) | Ethan's named test file visible; creation through GPP drive confirmed by lab author |
+| [Mapped-drive test file](../evidence/access-control/finance-drive-write-access-success.png) | Ethan's named test file visible; the file-creation operation itself is not captured |
 | [Olivia identity and denial](../evidence/access-control/finance-readonly-write-denied.png) | `corp\olivia.brooks`, `Finance2` contents, and write denial; primary read-only test capture |
 | [Applied computer policy](../evidence/group-policy/cl01-workstation-gpo-applied.png) | Successful policy refresh and applied `GPO-Workstations-Baseline`; CL01 identified as a member server |
 | [Legal banner](../evidence/group-policy/cl01-logon-banner-gpo.png) | Authorized-use banner displayed |
-| [Finance mapped drive](../evidence/group-policy/finance-drive-mapping-success.png) | Finance (`F:`) present; exact GPP configuration supplied by lab author |
+| [Finance mapped drive](../evidence/group-policy/finance-drive-mapping-success.png) | Finance (`F:`) present; the GPP configuration screen is not retained |
 | [ADUC launch](../evidence/helpdesk/helpdesk-aduc-runas-alex.png) | `runas /netonly` invocation with Alex's credentials; launch message alone is not delegation proof |
 | [Password-reset result](../evidence/helpdesk/helpdesk-delegated-password-reset-success.png) | Successful reset dialog for Sofia; actor identity is not visible; corporate OU tree also visible |
 | [Locked state](../evidence/helpdesk/sofia-account-lockout-confirmed.png) | Sofia `LockedOut = True` following failed attempts; password strings redacted |
@@ -46,7 +46,7 @@ Paths below link every retained screenshot. “Context” identifies the scope o
 
 ## Scope and useful future evidence
 
-The lab author identifies DC01 and CL01 as Windows Server 2022. CL01's captured policy output identifies a member server with OS version `10.0.20348`. CL01 is the lab endpoint, not a Windows 10/11 workstation.
+DC01 and CL01 are Azure-hosted Windows Server 2022 VMs. CL01's captured policy output identifies a member server with OS version `10.0.20348`. CL01 is the lab endpoint, not a Windows 10/11 workstation.
 
 The Help Desk captures support the recorded workflow, account-state results, and Alex's limited session membership. They do not provide the OU delegation ACL or conclusive actor linkage for every action. Absence of Domain Admins in this captured token is not a historical membership audit.
 
